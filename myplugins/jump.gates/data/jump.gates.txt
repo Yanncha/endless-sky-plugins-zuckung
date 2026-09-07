@@ -1,17 +1,19 @@
-# mission "jump gates announcement" 3014 11 16 or 1 month after pluginstart
-# mission "jump gates building 0" 14 days later
-# mission "jump gates building 25" 1 month later
-# mission "jump gates building 50" 1 month later
-# mission "jump gates building 75" 1 month later
-# mission "jump gates building 99" 1 month later
-# mission "jump gates done" 1 month later
-# event "jump gate research"
-# event "gates construction start"
-# event "gates 25p done"
-# event "gates 50p done"
-# event "gates 75p done"
-# event "gates 99p done"
-# event "gates activation"
+# mission "jump gates announcement" : after 3014 04 09 16 or 1 y of game
+# If plugin is installed while date has already passed, event will be triggered just a couple of days after.
+# Normal building pace:
+# mission "jump gates building 0" 42 days later
+# mission "jump gates building 25" 3 months later
+# mission "jump gates building 50" 3 months later
+# mission "jump gates building 75" 3 months later
+# mission "jump gates building 99" 3 months later
+# mission "jump gates done" 3 months later
+# event "jump gate research" on 3014 04 09
+# event "gates construction start" 42d (6w) later
+# event "gates 25p done" 90d later
+# event "gates 50p done" 90d later
+# event "gates 75p done" 90d later
+# event "gates 99p done" 90d later
+# event "gates activation" 90d later
 # wormhole "Jump Gate Naos-Spica"
 # wormhole "Jump Gate Spica-Alniyat"
 # wormhole "Jump Gate Alniyat-Tarazed"
@@ -39,9 +41,9 @@ mission "jump gates announcement"
 	to offer
 		or
 			has "event: jump gate research"
-			"days since start" > 30
+			"days since start" > 365
 	on offer
-		event "gates construction start" 14
+		event "gates construction start" 42
 		conversation
 			scene "scene/holonews_0"
 			`As you enter the spaceport, you immediately notice several groups who are attentively following the holonews. Something seems to have happened. You join a group and study the holoprojector. A news anchor explains the situation.`
@@ -61,7 +63,7 @@ mission "jump gates building 0"
 	to offer
 		has "event: gates construction start"
 	on offer
-		event "gates 25p done" 30
+		event "gates 25p done" 90
 		conversation
 			scene "scene/holonews_0"
 			`In a spaceport bar, you notice a few people staring intensely at a holoprojector and join them. News is being broadcast about the planned construction of the jump gates.`
@@ -78,7 +80,7 @@ mission "jump gates building 25"
 	to offer
 		has "event: gates 25p done"
 	on offer
-		event "gates 50p done" 30
+		event "gates 50p done" 90
 		conversation
 			scene "scene/holonews_25"
 			`On the way through the spaceport you see a holoprojector showing the news. Since it's about the jump gates, you stop and watch it.`
@@ -95,7 +97,7 @@ mission "jump gates building 50"
 	to offer
 		has "event: gates 50p done"
 	on offer
-		event "gates 75p done" 30
+		event "gates 75p done" 90
 		conversation
 			scene "scene/holonews_50"
 			`After landing, you look at the local holonet in search of work and find a news report about the progress of the jump gates.`
@@ -112,7 +114,7 @@ mission "jump gates building 75"
 	to offer
 		has "event: gates 75p done"
 	on offer
-		event "gates 99p done" 30
+		event "gates 99p done" 90
 		conversation
 			scene "scene/holonews_75"
 			`On the way through the spaceport, you hear several passersby talking about a terrorist attack and decide to check the news at the next holoprojector.`
@@ -131,7 +133,7 @@ mission "jump gates building 99"
 	to offer
 		has "event: gates 99p done"
 	on offer
-		event "gates activation" 30
+		event "gates activation" 90
 		conversation
 			scene "scene/holonews_99"
 			`When you arrive at the spaceport, you notice a news broadcast on one of the holoprojectors you pass. It's about the jump gates, and you decide to stop and watch it.`
@@ -162,7 +164,7 @@ mission "jump gates done"
 # Building events
 
 event "jump gate research"
-	date 16 12 3013
+	date 09 04 3014
 
 event "gates construction start"
 
