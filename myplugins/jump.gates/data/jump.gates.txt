@@ -6,12 +6,12 @@
 # mission "jump gates building 99" 1 month later
 # mission "jump gates done" 1 month later
 # event "jump gate research"
-# event "wait for start"
-# event "wait for 25"
-# event "wait for 50"
-# event "wait for 75"
-# event "wait for 99"
-# event "wait for active"
+# event "gates construction start"
+# event "gates 25p done"
+# event "gates 50p done"
+# event "gates 75p done"
+# event "gates 99p done"
+# event "gates activation"
 # wormhole "Jump Gate Naos-Spica"
 # wormhole "Jump Gate Spica-Alniyat"
 # wormhole "Jump Gate Alniyat-Tarazed"
@@ -41,7 +41,7 @@ mission "jump gates announcement"
 			has "event: jump gate research"
 			"days since start" > 30
 	on offer
-		event "wait for start" 14
+		event "gates construction start" 14
 		conversation
 			scene "scene/holonews_0"
 			`As you enter the spaceport, you immediately notice several groups who are attentively following the holonews. Something seems to have happened. You join a group and study the holoprojector. A news anchor explains the situation.`
@@ -59,9 +59,9 @@ mission "jump gates building 0"
 	source
 		government "Free Worlds" "Republic" "Syndicate" "Militia" "Merchant" "Independent" "Pirate"
 	to offer
-		has "event: wait for start"
+		has "event: gates construction start"
 	on offer
-		event "wait for 25" 30
+		event "gates 25p done" 30
 		conversation
 			scene "scene/holonews_0"
 			`In a spaceport bar, you notice a few people staring intensely at a holoprojector and join them. News is being broadcast about the planned construction of the jump gates.`
@@ -76,9 +76,9 @@ mission "jump gates building 25"
 	source
 		government "Free Worlds" "Republic" "Syndicate" "Militia" "Merchant" "Independent" "Pirate"
 	to offer
-		has "event: wait for 25"
+		has "event: gates 25p done"
 	on offer
-		event "wait for 50" 30
+		event "gates 50p done" 30
 		conversation
 			scene "scene/holonews_25"
 			`On the way through the spaceport you see a holoprojector showing the news. Since it's about the jump gates, you stop and watch it.`
@@ -93,9 +93,9 @@ mission "jump gates building 50"
 	source
 		government "Free Worlds" "Republic" "Syndicate" "Militia" "Merchant" "Independent" "Pirate"
 	to offer
-		has "event: wait for 50"
+		has "event: gates 50p done"
 	on offer
-		event "wait for 75" 30
+		event "gates 75p done" 30
 		conversation
 			scene "scene/holonews_50"
 			`After landing, you look at the local holonet in search of work and find a news report about the progress of the jump gates.`
@@ -110,9 +110,9 @@ mission "jump gates building 75"
 	source
 		government "Free Worlds" "Republic" "Syndicate" "Militia" "Merchant" "Independent" "Pirate"
 	to offer
-		has "event: wait for 75"
+		has "event: gates 75p done"
 	on offer
-		event "wait for 99" 30
+		event "gates 99p done" 30
 		conversation
 			scene "scene/holonews_75"
 			`On the way through the spaceport, you hear several passersby talking about a terrorist attack and decide to check the news at the next holoprojector.`
@@ -129,9 +129,9 @@ mission "jump gates building 99"
 	source
 		government "Free Worlds" "Republic" "Syndicate" "Militia" "Merchant" "Independent" "Pirate"
 	to offer
-		has "event: wait for 99"
+		has "event: gates 99p done"
 	on offer
-		event "wait for active" 30
+		event "gates activation" 30
 		conversation
 			scene "scene/holonews_99"
 			`When you arrive at the spaceport, you notice a news broadcast on one of the holoprojectors you pass. It's about the jump gates, and you decide to stop and watch it.`
@@ -146,7 +146,7 @@ mission "jump gates done"
 	source
 		government "Free Worlds" "Republic" "Syndicate" "Militia" "Merchant" "Independent" "Pirate"
 	to offer
-		has "event: wait for active"
+		has "event: gates activation"
 	on offer
 		conversation
 			scene "scene/holonews_100"
@@ -164,10 +164,10 @@ mission "jump gates done"
 event "jump gate research"
 	date 16 12 3013
 
-event "wait for start"
+event "gates construction start"
 
 
-event "wait for 25"
+event "gates 25p done"
 	system "Naos"
 		add object
 			sprite planet/gate_build25
@@ -248,7 +248,7 @@ event "wait for 25"
 			offset 135
 
 
-event "wait for 50"
+event "gates 50p done"
 	system "Naos"
 		remove object
 			sprite planet/gate_build25
@@ -401,7 +401,7 @@ event "wait for 50"
 			offset 135
 
 
-event "wait for 75"
+event "gates 75p done"
 	system "Naos"
 		remove object
 			sprite planet/gate_build50
@@ -554,7 +554,7 @@ event "wait for 75"
 			offset 135
 
 
-event "wait for 99"
+event "gates 99p done"
 	system "Naos"
 		remove object
 			sprite planet/gate_build75
@@ -708,7 +708,7 @@ event "wait for 99"
 
 
 # Final building event that places active gates
-event "wait for active"
+event "gates activation"
 	system "Naos"
 		remove object
 			sprite planet/gate_build99
@@ -954,7 +954,7 @@ mission "jump gates compatibility fix"
 	invisible
 	landing
 	to offer
-		has "event: wait for active"
+		has "event: gates activation"
 	on offer
 		event "jump gates compatibility fix"
 		fail
